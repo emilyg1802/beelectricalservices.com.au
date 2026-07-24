@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ben & Em's Electrical | Adelaide Electricians</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;background:#fff}
+a{text-decoration:none;color:inherit}
+.section{padding:3rem 2rem;max-width:900px;margin:0 auto}
+.section-title{font-size:22px;font-weight:500;margin-bottom:0.5rem;color:#0a2342}
+.section-sub{font-size:15px;color:#666;margin-bottom:2rem}
+.divider{border:none;border-top:1px solid #eee;margin:0}
+
+.nav{background:#0a2342;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.nav-logo img{height:46px;width:auto;display:block}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{color:#fff;font-size:14px}
+.nav-links a:hover{color:#f5c518}
+.on-dark{display:inline-block;color:#f5c518;border:2px solid #f5c518;background:#0a2342;padding:8px 20px;border-radius:8px;font-weight:500;font-size:14px;cursor:pointer;text-decoration:none;font-family:inherit;line-height:1}
+.on-dark:hover{background:#f5c518;color:#0a2342}
+.on-dark-lg{display:inline-block;color:#f5c518;border:2px solid #f5c518;background:#0a2342;padding:11px 28px;border-radius:8px;font-weight:500;font-size:15px;cursor:pointer;text-decoration:none;font-family:inherit;line-height:1}
+.on-dark-lg:hover{background:#f5c518;color:#0a2342}
+
+.hero{background:#0a2342;padding:4rem 2rem;text-align:center}
+.hero h1{font-size:36px;font-weight:500;margin-bottom:1rem;line-height:1.2;color:#fff}
+.hero h1 span{color:#f5c518}
+.hero-name{color:#f5c518}
+.hero-desc{font-size:16px;color:rgba(255,255,255,0.85);max-width:600px;margin:0 auto 2rem;line-height:1.7}
+.hero-badges{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:2.5rem}
+.badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;display:flex;align-items:center;gap:6px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.trust-bar{background:#f5c518;padding:1rem 2rem}
+.trust-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:8px}
+.trust-item{display:flex;align-items:center;gap:8px;color:#0a2342;font-size:14px;font-weight:500}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.service-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.25rem}
+.service-card h3{font-size:15px;font-weight:500;margin-bottom:0.4rem;color:#0a2342}
+.service-card p{font-size:13px;color:#666;line-height:1.5}
+.service-price{margin-top:0.75rem;font-size:13px;color:#185fa5;font-weight:500}
+
+.quote-tool{background:#f0f6ff;border-radius:12px;border:1px solid #b5d4f4;padding:2rem}
+.q-step{display:none}
+.q-step.active{display:block}
+.q-title{font-size:18px;font-weight:500;color:#0a2342;margin-bottom:0.5rem}
+.q-sub{font-size:14px;color:#666;margin-bottom:1.5rem}
+.q-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:1.5rem}
+.q-option{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:1rem;cursor:pointer;text-align:left;transition:all 0.15s;font-family:inherit}
+.q-option:hover{border-color:#185fa5;background:#f0f6ff}
+.q-option.selected{border-color:#185fa5;background:#e6f1fb;border-width:2px}
+.q-option .opt-label{font-size:15px;font-weight:500;color:#0a2342}
+.q-option .opt-desc{font-size:13px;color:#666;margin-top:4px}
+.q-back{background:transparent;border:1px solid #e5e7eb;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px;color:#666;font-family:inherit}
+.price-result{background:#0a2342;border-radius:12px;padding:2rem;text-align:center}
+.price-big{font-size:42px;font-weight:500;color:#f5c518;margin:0.5rem 0}
+.price-note{font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:1.5rem}
+.price-includes{text-align:left;background:rgba(255,255,255,0.08);border-radius:8px;padding:1rem;margin-bottom:1.5rem}
+.price-includes li{font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:6px;list-style:none;display:flex;align-items:center;gap:8px}
+.price-includes li::before{content:'✓';color:#f5c518;font-weight:500}
+.discount-note{background:rgba(245,197,24,0.15);border:1px solid rgba(245,197,24,0.4);border-radius:8px;padding:10px 16px;font-size:13px;color:#fff;margin-bottom:1.5rem}
+.progress-bar{height:4px;background:rgba(10,35,66,0.15);border-radius:2px;margin-bottom:1.5rem}
+.progress-fill{height:100%;background:#185fa5;border-radius:2px;transition:width 0.3s}
+
+.pricing-table{width:100%;border-collapse:collapse}
+.pricing-table th{background:#0a2342;color:#fff;padding:10px 14px;text-align:left;font-weight:500;font-size:14px}
+.pricing-table td{padding:10px 14px;font-size:14px;border-bottom:1px solid #eee}
+.pricing-table tr:nth-child(even) td{background:#f9fafb}
+.pricing-table td:last-child{font-weight:500;color:#0a2342;white-space:nowrap}
+.discount-banner{background:#fdf3c0;border:1px solid #f5c518;border-radius:8px;padding:1rem 1.25rem;display:flex;align-items:center;gap:12px;margin-top:1.5rem}
+.discount-banner p{font-size:14px;color:#7a5c00;line-height:1.5}
+
+.em-section{background:#f8fafc;padding:3rem 2rem}
+.em-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:180px 1fr;gap:2.5rem;align-items:start}
+.em-avatar-box{background:#0a2342;border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.em-tag{display:inline-block;background:#e8f4fd;color:#1a6aa6;padding:4px 14px;border-radius:20px;font-size:13px;margin-bottom:1rem}
+.em-section p{font-size:15px;line-height:1.7;color:#555;margin-bottom:1rem}
+.em-awards{display:flex;flex-wrap:wrap;gap:10px;margin-top:0.5rem}
+.award-chip{background:#fdf3c0;color:#7a5c00;border:1px solid #f5c518;padding:6px 14px;border-radius:20px;font-size:13px;display:flex;align-items:center;gap:6px}
+
+.faq-item{border-bottom:1px solid #eee;padding:1.25rem 0;cursor:pointer}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:500;color:#0a2342}
+.faq-a{font-size:14px;color:#555;line-height:1.7;max-height:0;overflow:hidden;transition:max-height 0.3s,margin-top 0.3s}
+.faq-a.open{max-height:200px;margin-top:0.75rem}
+.faq-chevron{transition:transform 0.2s;color:#888}
+.faq-chevron.open{transform:rotate(180deg)}
+
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.review-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.25rem}
+.review-stars{color:#f59e0b;font-size:16px;margin-bottom:0.5rem}
+.review-text{font-size:14px;color:#555;line-height:1.6;margin-bottom:1rem}
+.review-author{font-size:13px;font-weight:500;color:#0a2342}
+.review-source{font-size:12px;color:#888}
+.hipages-link{display:inline-flex;align-items:center;gap:8px;background:#f0f6ff;border:1px solid #b5d4f4;color:#185fa5;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:500;margin-top:1.5rem}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.contact-info-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:1.5rem}
+.contact-icon{width:40px;height:40px;border-radius:8px;background:#e6f1fb;display:flex;align-items:center;justify-content:center;color:#185fa5;font-size:18px;flex-shrink:0}
+.servicem8-wrap{display:flex;flex-direction:column;gap:12px}
+
+.footer{background:#0a2342;padding:3rem 2rem 1.5rem}
+.footer-inner{max-width:900px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;margin-bottom:2rem}
+.footer h4{color:#fff;font-size:15px;font-weight:500;margin-bottom:1rem}
+.footer ul{list-style:none}
+.footer ul li{margin-bottom:8px;font-size:13px}
+.footer ul li a{color:rgba(255,255,255,0.7)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.15);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,0.5)}
+.social-link{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);padding:8px 16px;border-radius:8px;color:rgba(255,255,255,0.85);font-size:13px;margin-top:0.5rem}
+
+@media(max-width:640px){
+.em-inner{grid-template-columns:1fr}
+.em-avatar-box{display:none}
+.contact-grid{grid-template-columns:1fr}
+.nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="https://i.ibb.co/LXPSV9n5/BEElec.png" alt="Ben & Em's Electrical">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#quote">Get a quote</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#about">About Em</a></li>
+    <li><a href="#faqs">FAQs</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a href="#quote" class="on-dark" onclick="event.preventDefault();document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Book now</a>
+</nav>
+
+<div class="hero">
+  <div style="max-width:700px;margin:0 auto">
+    <h1>Adelaide's <span>trusted</span> residential electricians</h1>
+    <p class="hero-desc"><span class="hero-name">Ben & Em's Electrical.</span> Qualified, licensed electricians serving all of Adelaide with a focus on the northern suburbs. We do things properly, safely, and to the highest possible standard.</p>
+    <div class="hero-badges">
+      <span class="badge"><i class="ti ti-license"></i> Lic. PGE293439</span>
+      <span class="badge"><i class="ti ti-shield-check"></i> Fully insured</span>
+      <span class="badge"><i class="ti ti-woman"></i> Female electrician on team</span>
+      <span class="badge"><i class="ti ti-award"></i> Apprentice of the Year</span>
+      <span class="badge"><i class="ti ti-building-store"></i> Bunnings Trade Partner</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#quote" class="on-dark-lg" onclick="event.preventDefault();document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Get an instant quote</a>
+      <a href="https://book.servicem8.com/request_service_booking?strVendorUUID=2c875300-741d-4b34-8f66-23ab30cd442b" class="on-dark-lg">Book online</a>
+    </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><i class="ti ti-clock"></i> On time, every time</div>
+    <div class="trust-item"><i class="ti ti-home"></i> We treat your home like our own</div>
+    <div class="trust-item"><i class="ti ti-discount"></i> 5% pensioner & emergency services discount</div>
+    <div class="trust-item"><i class="ti ti-map-pin"></i> All of Adelaide, north suburbs specialists</div>
+  </div>
+</div>
+
+<div id="services">
+<div class="section">
+  <p class="section-title">Our services</p>
+  <p class="section-sub">Residential electrical work done right, from small repairs to full installations.</p>
+  <div class="services-grid">
+    <div class="service-card"><div style="font-size:28px;margin-bottom:0.75rem">💡</div><h3>Lights & power points</h3><p>New installations, replacements, and repairs for all lighting and power point needs.</p><p class="service-price">From $120 + GST</p></div>
+    <div class="service-card"><div style="font-size:28px;margin-bottom:0.75rem">🔧</div><h3>Ceiling fans</h3><p>Supply and install ceiling fans with or without lights. All brands welcome.</p><p class="service-price">From $140 + GST</p></div>
+    <div class="service-card"><div style="font-size:28px;margin-bottom:0.75rem">🚿</div><h3>Exhaust fans & heat lamps</h3><p>Bathroom exhaust fans, heat lamps, and 3-in-1 combo units.</p><p class="service-price">From $180 + GST</p></div>
+    <div class="service-card"><div style="font-size:28px;margin-bottom:0.75rem">⚡</div><h3>Switchboard upgrades</h3><p>Safety switch installation, panel upgrades and circuit protection.</p><p class="service-price">Quote required</p></div>
+    <div class="service-card"><div style="font-size:28px;margin-bottom:0.75rem">🏠</div><h3>New home wiring</h3><p>Full domestic installations for new builds and major renovations.</p><p class="service-price">Quote required</p></div>
+    <div class="service-card"><div style="font-size:28px;margin-bottom:0.75rem">🔋</div><h3>Safety inspections</h3><p>Home electrical safety audits, great for landlords and new home buyers.</p><p class="service-price">From $150 + GST</p></div>
+  </div>
+</div>
+</div>
+<hr class="divider">
+
+<div id="quote">
+<div class="section">
+  <p class="section-title">Get an instant price</p>
+  <p class="section-sub">Answer a few quick questions and we'll give you a price on the spot.</p>
+  <div class="quote-tool">
+    <div class="progress-bar"><div class="progress-fill" id="q-progress" style="width:20%"></div></div>
+    <div class="q-step active" id="step1">
+      <p class="q-title">What do you need help with?</p>
+      <p class="q-sub">Select the type of job</p>
+      <div class="q-options">
+        <button class="q-option" onclick="selectOption(this,'exhaust');nextStep()"><div class="opt-label">Exhaust fan / heat lamp</div><div class="opt-desc">Bathroom ventilation & heating</div></button>
+        <button class="q-option" onclick="selectOption(this,'fan');nextStep()"><div class="opt-label">Ceiling fan</div><div class="opt-desc">Supply & install</div></button>
+        <button class="q-option" onclick="selectOption(this,'lights');nextStep()"><div class="opt-label">Lights & power points</div><div class="opt-desc">New, replace or repair</div></button>
+        <button class="q-option" onclick="selectOption(this,'other');nextStep()"><div class="opt-label">Something else</div><div class="opt-desc">Switchboard, new build, etc.</div></button>
+      </div>
+    </div>
+    <div class="q-step" id="step2-exhaust">
+      <p class="q-title">What type of unit?</p><p class="q-sub">Select the unit you'd like installed</p>
+      <div class="q-options">
+        <button class="q-option" onclick="showPrice(180,'3-in-1 exhaust fan, heat lamp & light combo',['Supply & install of 3-in-1 unit','All wiring and connections','Tested and certified'])"><div class="opt-label">3-in-1 combo</div><div class="opt-desc">Exhaust + heat lamp + light</div></button>
+        <button class="q-option" onclick="showPrice(120,'Exhaust fan only',['Supply & install of exhaust fan','All wiring and connections','Tested and certified'])"><div class="opt-label">Exhaust fan only</div><div class="opt-desc">Ventilation only</div></button>
+        <button class="q-option" onclick="showPrice(150,'Heat lamp installation',['Supply & install of heat lamp','All wiring and connections','Tested and certified'])"><div class="opt-label">Heat lamp only</div><div class="opt-desc">Bathroom heating</div></button>
+      </div>
+      <div><button class="q-back" onclick="goBack()">Back</button></div>
+    </div>
+    <div class="q-step" id="step2-fan">
+      <p class="q-title">Will you supply your own fan?</p><p class="q-sub">We can install your existing fan or supply and install for you</p>
+      <div class="q-options">
+        <button class="q-option" onclick="showPrice(280,'Ceiling fan supply & install',['Quality ceiling fan included','Professional installation','Tested and certified'])"><div class="opt-label">Supply & install</div><div class="opt-desc">We source & fit the fan</div></button>
+        <button class="q-option" onclick="showPrice(140,'Ceiling fan install only',['Install your existing fan','All wiring & connections','Tested and certified'])"><div class="opt-label">Install only</div><div class="opt-desc">You have the fan already</div></button>
+      </div>
+      <div><button class="q-back" onclick="goBack()">Back</button></div>
+    </div>
+    <div class="q-step" id="step2-lights">
+      <p class="q-title">What type of work?</p>
+      <div class="q-options">
+        <button class="q-option" onclick="showPrice(120,'Power point installation',['New power point installed','Wiring and connections','Tested and certified'])"><div class="opt-label">New power point</div><div class="opt-desc">Add an extra outlet</div></button>
+        <button class="q-option" onclick="showPrice(35,'Downlight installation (per light)',['Per downlight supply & install','LED globes included','Tested'])"><div class="opt-label">Downlights</div><div class="opt-desc">Priced per light</div></button>
+        <button class="q-option" onclick="showPrice(90,'Light switch replacement',['Old switch removed','New switch fitted & tested'])"><div class="opt-label">Light switch</div><div class="opt-desc">Replace or add a switch</div></button>
+      </div>
+      <div><button class="q-back" onclick="goBack()">Back</button></div>
+    </div>
+    <div class="q-step" id="step2-other">
+      <p class="q-title">No worries, let's get you a custom quote</p>
+      <p class="q-sub">For switchboard upgrades, new builds, and larger jobs we'll put together a detailed quote.</p>
+      <div style="margin-bottom:1.5rem"><a href="https://book.servicem8.com/request_service_booking?strVendorUUID=2c875300-741d-4b34-8f66-23ab30cd442b" style="display:inline-block;background:#f5c518;color:#0a2342;padding:12px 28px;border-radius:8px;font-weight:500;font-size:15px">Request a free quote</a></div>
+      <div><button class="q-back" onclick="goBack()">Back</button></div>
+    </div>
+    <div class="q-step" id="step-result">
+      <div class="price-result">
+        <p id="r-job" style="font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:0.25rem"></p>
+        <p style="font-size:15px;color:#fff;margin-bottom:0.25rem">Fixed price from</p>
+        <p class="price-big" id="r-price"></p>
+        <p class="price-note">+ GST &nbsp;·&nbsp; No hidden extras</p>
+        <div class="discount-note">💛 5% discount available for pensioners and emergency services workers</div>
+        <ul class="price-includes" id="r-includes"></ul>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a href="https://book.servicem8.com/request_service_booking?strVendorUUID=2c875300-741d-4b34-8f66-23ab30cd442b" style="display:inline-block;background:#f5c518;color:#0a2342;padding:12px 28px;border-radius:8px;font-weight:500;font-size:15px">Book this job</a>
+          <a href="#" class="on-dark-lg" onclick="event.preventDefault();resetQuote()">Start again</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<hr class="divider">
+
+<div id="pricing">
+<div class="section">
+  <p class="section-title">Pricing guide</p>
+  <p class="section-sub">Transparent, fixed prices for common jobs. All prices are + GST.</p>
+  <table class="pricing-table">
+    <thead><tr><th>Job type</th><th>Notes</th><th>Price from</th></tr></thead>
+    <tbody>
+      <tr><td>3-in-1 exhaust fan / heat lamp / light combo</td><td>Install only, in place of existing</td><td>$180 + GST</td></tr>
+      <tr><td>3-in-1 exhaust fan / heat lamp / light combo</td><td>Supply & install in place of existing</td><td>$240 + GST</td></tr>
+      <tr><td>Exhaust fan only</td><td>Supply & install in place of existing</td><td>$200 + GST</td></tr>
+      
+      <tr><td>Ceiling fan</td><td> Install only</td><td>$140 + GST</td></tr>
+      <tr><td>Ceiling fan</td><td>Supply & install</td><td>$280 + GST</td></tr>
+      <tr><td>Power point, new</td><td>Single outlet</td><td>$120 + GST</td></tr>
+      <tr><td>Downlights</td><td>Per light, supply & install</td><td>$100 + GST each</td></tr>
+      <tr><td>Light switch replacement</td><td>Per switch</td><td>$90 + GST</td></tr>
+      <tr><td>Home safety inspection</td><td>Full audit report</td><td>$300 + GST</td></tr>
+      <tr><td>Switchboard upgrade / safety switches</td><td>Price varies by scope</td><td>Quote required</td></tr>
+    </tbody>
+  </table>
+  <div class="discount-banner">
+    <span style="font-size:24px">🧡</span>
+    <p><strong>5% discount</strong> for pensioners and emergency services workers (police, ambulance, fire, SES, ADF). Just let us know when you book.</p>
+  </div>
+</div>
+</div>
+<hr class="divider">
+
+<div id="about" class="em-section">
+  <div class="em-inner">
+    <div class="em-avatar-box">
+      <div style="font-size:52px">⚡</div>
+      <p style="color:#fff;font-size:14px;font-weight:500">Em</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:13px;line-height:1.5">Qualified electrician & Apprentice of the Year</p>
+      <div style="margin-top:8px;background:#f5c518;color:#0a2342;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:500">Female electrician</div>
+    </div>
+    <div>
+      <span class="em-tag">Meet the team</span>
+      <p class="section-title" style="margin-bottom:1.25rem">We're Ben and Em</p>
+      <p>We're Ben and Em, qualified electricians who are passionate about doing things properly, safely, and to the highest possible standard. Our business is built on care, attention to detail, and pride in our work. Whether it's a small repair or a full domestic installation, we approach every job with the same mindset: thorough planning, safe practices, and clean, precise workmanship. We're known for being particular, because we believe your home deserves nothing less.</p>
+      <p>We specialise in residential electrical work and understand how important it is to feel comfortable with the people working in your home. As new parents ourselves, we truly appreciate the trust families place in us. Having a female electrician on the job also helps us create a welcoming, respectful environment, especially for single females and families who want added peace of mind.</p>
+      <p>We hold ourselves to a very high standard, not just in our electrical work but in how we communicate, show up on time, and treat your home as if it were our own. Safety isn't just a requirement for us, it's a value.</p>
+      <p>If you're looking for electricians who genuinely care, take pride in their craft, and put people first, we'd love to work with you.</p>
+      <div class="em-awards">
+        <span class="award-chip">🏆 Apprentice of the Year</span>
+        <span class="award-chip">🔨 Bunnings Trade Partner</span>
+        <span class="award-chip">✅ ABN 54 694 051 397</span>
+        <span class="award-chip">📋 Lic. PGE293439</span>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="divider">
+
+<div id="faqs">
+<div class="section">
+  <p class="section-title">Frequently asked questions</p>
+  <p class="section-sub">Everything you need to know before booking.</p>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do you service my suburb? <i class="ti ti-chevron-down faq-chevron"></i></div><div class="faq-a">We service all of Adelaide, with a focus on the northern suburbs including Salisbury, Elizabeth, Gawler, Parafield, Modbury, Golden Grove, and everywhere in between.</div></div>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Are your prices fixed or will there be hidden costs? <i class="ti ti-chevron-down faq-chevron"></i></div><div class="faq-a">For the jobs listed in our pricing guide, we offer fixed prices with no hidden extras. For larger or more complex jobs, we provide a detailed written quote before any work begins. You'll always know exactly what you're paying.</div></div>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">I'd feel more comfortable with a female tradie. Is that possible? <i class="ti ti-chevron-down faq-chevron"></i></div><div class="faq-a">Absolutely. Em is a fully qualified electrician and is often on the tools. Just mention it when you book and we'll do our best to accommodate you.</div></div>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How quickly can you come out? <i class="ti ti-chevron-down faq-chevron"></i></div><div class="faq-a">We aim to respond to all enquiries within one business day. For urgent jobs, please call us directly and we'll do our best to fit you in as soon as possible.</div></div>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Are you licensed and insured? <i class="ti ti-chevron-down faq-chevron"></i></div><div class="faq-a">Yes. Ben & Em's Electrical holds Electrical Contractor Licence PGE293439 and is fully insured. We operate under ABN 54 694 051 397.</div></div>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do you offer any discounts? <i class="ti ti-chevron-down faq-chevron"></i></div><div class="faq-a">Yes! We offer a 5% discount for pensioners and emergency services workers (police, ambulance, fire, SES, and ADF). Just mention it when you get in touch and we'll apply it to your quote.</div></div>
+  <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can you help me pick the right product for my home? <i class="ti ti-chevron-down faq-chevron"></i></div><div class="faq-a">Definitely! As Bunnings Trade Partners we're across a wide range of products and can advise on the best options for your home, budget and style preferences.</div></div>
+</div>
+</div>
+<hr class="divider">
+
+<div id="reviews">
+<div class="section">
+  <p class="section-title">What our customers say</p>
+  <p class="section-sub">We're proud of our reputation. Here's what Adelaide families think of us.</p>
+  <div class="reviews-grid">
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Ben and Em were fantastic, on time, professional, and incredibly tidy. The price was exactly as quoted. Highly recommend!"</p><p class="review-author">Sarah M.</p><p class="review-source">Salisbury North</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"As a single mum I was nervous about having tradies in the house but Em made me feel completely comfortable. Excellent work and great value."</p><p class="review-author">Rachel K.</p><p class="review-source">Elizabeth Vale</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Sorted our switchboard and installed 6 downlights. Very thorough. You can tell they actually care about quality."</p><p class="review-author">David T.</p><p class="review-source">Parafield Gardens</p></div>
+  </div>
+  <a href="https://hipages.com.au/connect/emilygoff" class="hipages-link"><i class="ti ti-external-link"></i> See our reviews on hipages</a>
+</div>
+</div>
+<hr class="divider">
+
+<div id="contact">
+<div class="section">
+  <p class="section-title">Get in touch</p>
+  <p class="section-sub">Ready to book or want to chat about a job? We'd love to hear from you.</p>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-info-item">
+        <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
+        <div><p style="font-weight:500;font-size:15px;margin-bottom:2px">Service area</p><p style="font-size:14px;color:#666">All of Adelaide, northern suburbs specialists. Salisbury, Elizabeth, Gawler, Parafield and surrounds.</p></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon"><i class="ti ti-brand-facebook"></i></div>
+        <div><p style="font-weight:500;font-size:15px;margin-bottom:2px">Facebook</p><a href="https://www.facebook.com/profile.php?id=61586051335852" style="font-size:14px;color:#185fa5">Ben & Em's Electrical</a></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon"><i class="ti ti-file-check"></i></div>
+        <div><p style="font-weight:500;font-size:15px;margin-bottom:2px">Licence & ABN</p><p style="font-size:14px;color:#666">Lic. PGE293439 &nbsp;·&nbsp; ABN 54 694 051 397</p></div>
+      </div>
+    </div>
+    <div class="servicem8-wrap">
+      <p style="font-size:15px;font-weight:500;margin-bottom:0.5rem">Book or enquire online</p>
+      <a href="https://book.servicem8.com/request_service_booking?strVendorUUID=2c875300-741d-4b34-8f66-23ab30cd442b" style="display:block"><img src="https://www.servicem8.com/images/plugin_online_booking/Booking-Request-Button.png" width="250" height="69" alt="Book online via ServiceM8" style="border-radius:8px"></a>
+      <a href="https://book.servicem8.com/request_service_booking?strVendorUUID=2c875300-741d-4b34-8f66-23ab30cd442b" style="display:block"><img src="https://www.servicem8.com/images/plugin_online_booking/Quote-Request-Button.png" width="250" height="69" alt="Request a quote via ServiceM8" style="border-radius:8px"></a>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <img src="https://i.ibb.co/LXPSV9n5/BEElec.png" alt="Ben & Em's Electrical" style="height:40px;width:auto;margin-bottom:0.75rem;filter:brightness(0) invert(1)">
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6">Qualified, licensed electricians serving all of Adelaide. Lic. PGE293439 · ABN 54 694 051 397</p>
+        <a href="https://www.facebook.com/profile.php?id=61586051335852" class="social-link"><i class="ti ti-brand-facebook"></i> Follow us on Facebook</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Exhaust fans & heat lamps</a></li>
+          <li><a href="#services">Ceiling fans</a></li>
+          <li><a href="#services">Lights & power points</a></li>
+          <li><a href="#services">Switchboard upgrades</a></li>
+          <li><a href="#services">Safety inspections</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#quote">Instant quote tool</a></li>
+          <li><a href="#pricing">Pricing guide</a></li>
+          <li><a href="#about">About Em</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+          <li><a href="https://hipages.com.au/connect/emilygoff">Reviews on hipages</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Ben & Em's Electrical. All rights reserved.</span>
+      <span>Serving Adelaide's northern suburbs and beyond</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+let jobType='';
+function selectOption(el,type){el.closest('.q-options').querySelectorAll('.q-option').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');jobType=type;}
+function nextStep(){document.querySelectorAll('.q-step').forEach(s=>s.classList.remove('active'));const map={exhaust:'step2-exhaust',fan:'step2-fan',lights:'step2-lights',other:'step2-other'};document.getElementById(map[jobType]).classList.add('active');document.getElementById('q-progress').style.width='60%';}
+function goBack(){document.querySelectorAll('.q-step').forEach(s=>s.classList.remove('active'));document.getElementById('step1').classList.add('active');document.getElementById('q-progress').style.width='20%';}
+function showPrice(price,job,includes){document.getElementById('r-price').textContent='$'+price;document.getElementById('r-job').textContent=job;const ul=document.getElementById('r-includes');ul.innerHTML='';includes.forEach(i=>{const li=document.createElement('li');li.textContent=i;ul.appendChild(li);});document.querySelectorAll('.q-step').forEach(s=>s.classList.remove('active'));document.getElementById('step-result').classList.add('active');document.getElementById('q-progress').style.width='100%';}
+function resetQuote(){document.querySelectorAll('.q-step').forEach(s=>s.classList.remove('active'));document.getElementById('step1').classList.add('active');document.getElementById('q-progress').style.width='20%';jobType='';}
+function toggleFaq(el){const a=el.querySelector('.faq-a');const c=el.querySelector('.faq-chevron');a.classList.toggle('open');c.classList.toggle('open');}
+</script>
+</body>
+</html>
