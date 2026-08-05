@@ -477,15 +477,20 @@ a{text-decoration:none;color:inherit}
     <thead><tr><th>Job type</th><th>Notes</th><th>Price from</th></tr></thead>
     <tbody>
       <tr><td>3-in-1 heat lamp combo</td><td>Install only, in place of existing</td><td>$200 + GST</td></tr>
-      <tr><td>3-in-1 heat lamp, 2 lamp</td><td>Supply & install in place of existing</td><td>$436 + GST</td></tr>
-      <tr><td>3-in-1 heat lamp, 4 lamp</td><td>Supply & install in place of existing</td><td>$463 + GST</td></tr>
+      <tr><td>3-in-1 heat lamp, Atom Thredbo, 2 lamp</td><td>Supply & install, standard tier</td><td>$308 + GST</td></tr>
+      <tr><td>3-in-1 heat lamp, Atom Thredbo, 4 lamp</td><td>Supply & install, standard tier</td><td>$332 + GST</td></tr>
+      <tr><td>3-in-1 heat lamp, Clipsal Airflow, 2 lamp</td><td>Supply & install, mid-range tier</td><td>$409 + GST</td></tr>
+      <tr><td>3-in-1 heat lamp, Clipsal Airflow, 4 lamp</td><td>Supply & install, mid-range tier</td><td>$467 + GST</td></tr>
+      <tr><td>3-in-1 heat lamp, Tricolour LED, 2 lamp</td><td>Supply & install, premium tier</td><td>$436 + GST</td></tr>
+      <tr><td>3-in-1 heat lamp, Tricolour LED, 4 lamp</td><td>Supply & install, premium tier</td><td>$463 + GST</td></tr>
       <tr><td>Exhaust fan</td><td>Install only, in place of existing</td><td>$190 + GST</td></tr>
       <tr><td>Exhaust fan, 200mm</td><td>Supply & install, flush mounted</td><td>$239 + GST</td></tr>
       <tr><td>Exhaust fan, 250mm</td><td>Supply & install, flush mounted</td><td>$244 + GST</td></tr>
       <tr><td>Exhaust fan, side ducted</td><td>Supply & install, square</td><td>$305 + GST</td></tr>
       <tr><td>Ceiling fan, replacing existing</td><td>Install only, you supply the fan</td><td>$200 + GST</td></tr>
       <tr><td>Ceiling fan, new installation</td><td>Install only, new location</td><td>$340 + GST</td></tr>
-      <tr><td>Ceiling fan, supply & install</td><td>AC or DC, size, light & colour vary the price</td><td>from $361 + GST</td></tr>
+      <tr><td>Ceiling fan, replacing existing, supply & install</td><td>AC/DC, brand tier, size, light & colour vary the price</td><td>from $361 + GST</td></tr>
+      <tr><td>Ceiling fan, new installation, supply & install</td><td>AC/DC, brand tier, size, light & colour vary the price</td><td>from $501 + GST</td></tr>
       <tr><td>Replace light, spotlight</td><td>Install only, same location</td><td>$200 + GST</td></tr>
       <tr><td>Replace light, pendant</td><td>Install only, price depends on pendant</td><td>from $200 + GST</td></tr>
       <tr><td>Power point, single</td><td>Standard room, existing circuit nearby</td><td>from $217 + GST</td></tr>
@@ -743,7 +748,7 @@ const SUBURB_ZONES = {
   "Elizabeth South": true, "Elizabeth Vale": true, "Elizabeth Downs": true, "Elizabeth Grove": true,
   "Munno Para": true, "Munno Para West": true, "Munno Para Downs": true, "Davoren Park": true,
   "Smithfield": true, "Smithfield Plains": true, "Andrews Farm": true, "Craigmore": true,
-  "Blakeview": true, "Uleybury": true, "One Tree Hill": true, "Gawler": true, "Gawler East": true,
+  "Blakeview": true, "Uleybury": true, "One Tree Hill": true, "Hillbank": true, "Yattalunga": true, "Gawler": true, "Gawler East": true,
   "Gawler South": true, "Gawler West": true, "Gawler Belt": true, "Evanston": true,
   "Evanston Park": true, "Evanston South": true, "Willaston": true, "Hewett": true, "Kudla": true,
   "Roseworthy": false, "Freeling": false,
@@ -765,6 +770,9 @@ const SUBURB_ZONES = {
   "Medindie": true, "Vale Park": true, "Norwood": true, "Kensington": true, "Marryatville": true,
   "College Park": true, "St Peters": true, "Stepney": true, "Maylands": true, "Trinity Gardens": true,
   "Felixstow": true, "Payneham": true, "Firle": true, "Glynde": true, "Joslin": true, "Royston Park": true,
+  "Payneham South": true, "Kent Town": true, "Tranmere": true, "Marden": true, "St Morris": true,
+  "Rosslyn Park": true, "Beaumont": true, "Waterfall Gully": true, "Mount Osmond": true, "Dulwich": true,
+  "Kensington Gardens": true, "Kensington Park": true,
   // West / Port Adelaide
   "Thebarton": true, "Mile End": true, "Torrensville": true, "West Croydon": true, "Croydon": true,
   "Croydon Park": true, "Kilkenny": true, "Woodville": true, "Woodville North": true,
@@ -778,6 +786,9 @@ const SUBURB_ZONES = {
   "Queenstown": true, "Alberton": true, "Hindmarsh": true, "Welland": true, "Renown Park": true,
   "Ottoway": true, "Rosewater": true, "Angle Park": true, "Regency Park": true,
   "Mansfield Park": true, "Athol Park": true, "Jubilee Gardens": true,
+  "Brooklyn Park": true, "Underdale": true, "Allenby Gardens": true, "Beverley": true,
+  "Ridleyton": true, "West Richmond": true, "Richmond": true, "West Beach": true,
+  "Torrens Island": true, "Pennington": true, "Gillman": true,
   // Inner south / south-west
   "Unley": true, "Parkside": true, "Fullarton": true, "Malvern": true, "Goodwood": true,
   "Wayville": true, "Hyde Park": true, "Clarence Park": true, "Millswood": true,
@@ -788,17 +799,20 @@ const SUBURB_ZONES = {
   "Burnside": true, "Glenunga": true, "Linden Park": true, "Toorak Gardens": true, "Rose Park": true,
   "St Marys": true, "Edwardstown": true, "Plympton": true, "Plympton Park": true, "Camden Park": true,
   "North Plympton": true, "Kurralta Park": true, "Glandore": true, "Keswick": true, "Forestville": true,
-  "Netley": true, "Marleston": true, "Cowandilla": true,
+  "Netley": true, "Marleston": true, "Cowandilla": true, "South Plympton": true, "Park Holme": true,
   // Mitcham / foothills (still generally within range)
   "Mitcham": true, "Lower Mitcham": true, "Torrens Park": true, "Clapham": true, "Hawthorn": true,
   "Hawthorndene": true, "Blackwood": true, "Coromandel Valley": true, "Belair": true,
   "Craigburn Farm": true, "Bellevue Heights": true, "Flagstaff Hill": true,
+  "Bedford Park": true, "Sturt": true, "Daw Park": true, "Panorama": true, "Pasadena": true,
+  "Eden Hills": true,
   // South coast / Marion / Onkaparinga (borderline, generally still ~40-45 min)
   "Marion": true, "Oaklands Park": true, "Seacombe Gardens": true, "Seacliff": true,
   "Seacliff Park": true, "Brighton": true, "Hove": true, "Somerton Park": true, "Glenelg": true,
   "Glenelg North": true, "Glenelg East": true, "Glenelg South": true, "Novar Gardens": true,
   "North Brighton": true, "South Brighton": true, "Warradale": true, "Ascot Park": true,
-  "Melrose Park": true, "Clovelly Park": true, "Mitchell Park": true,
+  "Melrose Park": true, "Clovelly Park": true, "Mitchell Park": true, "Marino": true, "Kingston Park": true,
+  "Hallett Cove": false,
   "Aberfoyle Park": false, "Happy Valley": false, "Reynella": false, "Old Reynella": false,
   "Morphett Vale": false, "Christie Downs": false, "Noarlunga Downs": false, "Hackham": false,
   "Hackham West": false, "Onkaparinga Hills": false, "Huntfield Heights": false, "Seaford": false,
@@ -878,9 +892,13 @@ const quoteFlow = {
     ],
     branches: {
       combo: [
-        { key:'comboType', title:'Which combo unit?', sub:'More lamps means more heat output, not just a bigger unit', rich:true, options:[
-          { label:'2 lamp', tag:'Standard', desc:'2 x 275W heat lamps + LED light', bullets:['Warms most standard bathrooms comfortably','Lower running cost','Most common choice for ensuites & smaller bathrooms'], bestFor:'bathrooms up to roughly 5 m²', material:175, photoKey:'comboUnit' },
-          { label:'4 lamp', tag:'Stronger heat', desc:'4 x 275W heat lamps + LED light', bullets:['Noticeably faster, stronger heat','Better for larger or draughtier bathrooms','Worth it if the room feels cold in winter'], bestFor:'larger bathrooms, high ceilings, or colder rooms', material:195, photoKey:'comboUnit' },
+        { key:'comboType', title:'Which combo unit?', sub:'More lamps means more heat output, brand affects finish & durability', rich:true, options:[
+          { label:'Atom Thredbo, 2 lamp', tag:'Standard', desc:'2 x 275W heat lamps + LED light', bullets:['Reliable entry-level brand','Warms most standard bathrooms comfortably','Most common choice for ensuites & smaller bathrooms'], bestFor:'budget-conscious jobs, bathrooms up to roughly 5 m²', material:80, photoKey:'comboUnit' },
+          { label:'Atom Thredbo, 4 lamp', tag:'Standard', desc:'4 x 275W heat lamps + LED light', bullets:['Reliable entry-level brand','Noticeably faster, stronger heat','Better for larger or draughtier bathrooms'], bestFor:'budget-conscious jobs, larger bathrooms', material:98, photoKey:'comboUnit' },
+          { label:'Clipsal Airflow, 2 lamp', tag:'Mid-range', desc:'2 x heat lamps + LED light', bullets:['A step up from entry-level','Better build quality & quieter fan','Solid middle-ground option'], bestFor:'anyone wanting better than entry-level without going top-shelf', material:155, photoKey:'comboUnit' },
+          { label:'Clipsal Airflow, 4 lamp', tag:'Mid-range', desc:'4 x heat lamps + LED light', bullets:['A step up from entry-level','Better build quality & quieter fan','Solid middle-ground option'], bestFor:'anyone wanting better than entry-level without going top-shelf', material:198, photoKey:'comboUnit' },
+          { label:'Tricolour LED, 2 lamp', tag:'Premium', desc:'2 x 275W heat lamps + tricolour LED light', bullets:['Our top pick, best overall quality','Warm/cool/daylight LED tones built in','Improved, slimmer design'], bestFor:'anyone wanting the best result, worth the extra cost', material:175, photoKey:'comboUnit' },
+          { label:'Tricolour LED, 4 lamp', tag:'Premium', desc:'4 x 275W heat lamps + tricolour LED light', bullets:['Our top pick, best overall quality','Warm/cool/daylight LED tones built in','Stronger heat for larger bathrooms'], bestFor:'main bathrooms, anyone wanting the best result', material:195, photoKey:'comboUnit' },
         ]},
         { key:'supply', title:'Do you already have the unit?', sub:'We can supply a quality unit for you, or install one you already own', options:[
           { label:'Supply & install', desc:'We source the unit for you', setSupply:true, labor:200 },
@@ -922,6 +940,10 @@ const quoteFlow = {
       { key:'motor', title:'AC or DC motor?', sub:'The motor type affects running cost, noise and price', rich:true, options:[
         { label:'AC motor', tag:'Standard', desc:'The traditional, budget-friendly option', bullets:['Reliable & widely available','Lower upfront cost','Wall control or pull-cord operation'], bestFor:'secondary rooms, garages, budget-conscious jobs', material:-100 },
         { label:'DC motor', tag:'Premium', desc:'Up to 70% more efficient than AC', bullets:['Whisper-quiet operation','More speed settings, smoother control','Remote included as standard'], bestFor:'bedrooms, living areas & anyone running the fan for hours a day', material:0 },
+      ]},
+      { key:'brand', title:'Which brand tier?', sub:'Same install either way, the difference is finish, warranty & build quality', rich:true, options:[
+        { label:'Powerwave', tag:'Standard', desc:'A solid, no-frills fan', bullets:['Good quality for the price','Widely available parts & servicing','Great for rentals & budget jobs'], bestFor:'rentals, secondary rooms, keeping costs down', material:0 },
+        { label:'Brilliant / Ventair', tag:'Premium', desc:'Better finish & a stronger warranty', bullets:['Nicer blade finish & quieter operation','Longer manufacturer warranty','Our pick for a fan you\'ll look at every day'], bestFor:'main bedrooms, living areas, anyone wanting the best result', material:35 },
       ]},
       { key:'light', title:'Does the fan include a light?', sub:'Adding a light kit means one fixture instead of two', rich:true, options:[
         { label:'With 20W tricolour light', tag:'All-in-one', desc:'Fan + integrated tricolour LED', bullets:['One fixture, one install','Dimmable warm/cool/daylight tones','No separate light point needed'], bestFor:'rooms with no existing ceiling light, or replacing an old light+fan combo', material:239 },
